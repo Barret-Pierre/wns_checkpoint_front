@@ -6,5 +6,6 @@ export interface Continent {
 }
 export interface ContinentWithWountry {
   code: string;
+  name: string;
   countries: Country[];
 }

@@ -14,7 +14,7 @@ function CountryCard({ country }: IProps) {
         <Card.Subtitle className="mb-2 text-muted">
           {country.name}
         </Card.Subtitle>
-        <Card.Link as={Link} to={country.code}>
+        <Card.Link as={Link} to={`country/${country.code}`}>
           Voir le pays
         </Card.Link>
       </Card.Body>
