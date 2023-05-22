@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
-import "./App.css";
+// import "./App.css";
 import Main from "./pages/Main";
 import Continents from "./components/Continents";
 import NoMatch from "./components/NoMatch";
