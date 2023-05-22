@@ -1,19 +1,25 @@
 import { useQuery } from "@apollo/client";
 import { GET_CONTINENTS } from "../graphql/useGetContinents";
 import { Continent } from "../common/interfaces/continent.interface";
-import { Link } from "react-router-dom";
+import { Col, Container, Row } from "react-bootstrap";
+import ContinentCard from "./ContinentCard";
 
 function Continents() {
-  const { data } = useQuery<{ continents: Continent[] }>(GET_CONTINENTS);
+  const { loading, data } = useQuery<{ continents: Continent[] }>(
+    GET_CONTINENTS
+  );
   return (
-    <div>
-      <h2>Continents</h2>
-      {data?.continents.map((continent) => (
-        <>
-          <Link to={continent.code}>{continent.name}</Link>
-        </>
-      ))}
-    </div>
+    <Container className="pt-5">
+      <h2 className="mb-4">Continents</h2>
+      {loading && <p>Loading...</p>}
+      <Row xs={1} md={3} className="g-4">
+        {data?.continents.map((continent) => (
+          <Col>
+            <ContinentCard continent={continent} />
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 }
 
