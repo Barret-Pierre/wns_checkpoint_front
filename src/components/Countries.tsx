@@ -19,15 +19,19 @@ function Countries() {
 
   return (
     <Container className="pt-5">
-      <h2 className="mb-4">Continent name </h2>
       {loading && <p>Loading...</p>}
-      <Row xs={1} md={3} className="g-4">
-        {data?.continent.countries.map((country) => (
-          <Col>
-            <CountryCard country={country} />
-          </Col>
-        ))}
-      </Row>
+      {data && (
+        <>
+          <h2 className="mb-4">{data.continent.name} </h2>
+          <Row xs={1} md={3} className="g-4">
+            {data?.continent.countries.map((country) => (
+              <Col>
+                <CountryCard country={country} />
+              </Col>
+            ))}
+          </Row>
+        </>
+      )}
     </Container>
   );
 }
